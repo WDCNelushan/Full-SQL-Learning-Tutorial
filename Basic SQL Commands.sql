@@ -110,6 +110,34 @@ SELECT first_name, gender, age
 FROM employee_demographics
 ORDER BY gender ASC, age DESC;
 
+-- HAVING clause
+
+select gender, AVG(age)
+from employee_demographics
+group by gender
+having AVG(age) >40;
+
+select occupation , AVG(salary)
+from employee_salary
+where occupation LIKE "%manager%"
+group by occupation 
+having AVG(salary) > 75000;
+
+-- Aliasing 
+
+select gender, AVG(age) AS Average_age
+from employee_demographics
+group by gender
+having AVG(age) >40;
+
+-- Limit
+
+SELECT first_name, salary   -- Finding the Top 3 Highest Earners
+FROM employee_salary
+ORDER BY salary DESC
+LIMIT 3;
+
+
 
 
 

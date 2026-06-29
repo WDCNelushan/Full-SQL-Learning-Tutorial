@@ -9,6 +9,9 @@ from parks_and_recreation.employee_salary;
 select * 
 from parks_and_recreation.parks_departments;
 
+select MAX(salary)
+from parks_and_recreation.employee_salary;
+
 SELECT first_name, last_name, age, (age+10) * 10
 FROM parks_and_recreation.employee_demographics;
 
@@ -82,3 +85,40 @@ WHERE age BETWEEN 30 AND 40;
 SELECT * 
 FROM employee_demographics 
 WHERE birth_date BETWEEN '1980-01-01' AND '1989-12-31';
+
+-- Group By Clause
+
+select gender
+from employee_demographics 
+group by gender;
+
+select gender, AVG(age), MAX(age),MIN(age),COUNT(employee_id)
+from employee_demographics 
+group by gender;
+
+-- OREDER BY clause 
+
+SELECT first_name, last_name 
+FROM employee_demographics
+ORDER BY last_name ASC;
+
+SELECT first_name, last_name, salary 
+FROM employee_salary
+ORDER BY salary DESC;
+
+SELECT first_name, gender, age 
+FROM employee_demographics
+ORDER BY gender ASC, age DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+

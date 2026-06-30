@@ -69,5 +69,32 @@ JOIN parks_departments AS dept
     ON sal.dept_id = dept.department_id;
 
 
+-- UNION
+
+select first_name, last_name, "Old Man" AS Label
+from employee_demographics
+where age >40 AND gender = "Male"
+UNION       -- Remove Duplicates
+select first_name, last_name, "Old Lady" AS Label
+from employee_demographics
+where age >40 AND gender = "Female"
+UNION
+select first_name, last_name, "Highly Earners" AS Label
+from employee_salary
+where salary > 70000
+ORDER BY  first_name, last_name;
+
+SELECT first_name, last_name 
+FROM employee_demographics
+UNION ALL      -- Keep Duplicates
+SELECT first_name, last_name 
+FROM employee_salary;
+
+
+
+
+
+
+
      
      
